@@ -26,8 +26,8 @@
                                         <!-- single-product-wrap start -->
                                         <div class="single-product-wrap">
                                             <div class="product-image">
-                                                <a href="single-product.html">
-                                                    <img src="{{p.ImageUrl}}" alt="Li's Product Image">
+                                                <a href="{%url 'product_single' id=p.id%}">
+                                                    <img src="{{p.ImageUrl}}" alt="Li's Product Image" style="height:200px">
                                                 </a>
                                                 <span class="sticker">New</span>
                                             </div>
@@ -35,7 +35,7 @@
                                                 <div class="product_desc_info">
                                                     <div class="product-review">
                                                         <h5 class="manufacturer">
-                                                            <a href="shop-left-sidebar.html">{{p.title}}</a>
+                                                            <a href="shop-left-sidebar.html">{{p.category}}</a>
                                                         </h5>
                                                         <div class="rating-box">
                                                             <ul class="rating">
@@ -47,7 +47,7 @@
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                    <h4><a class="product_name" href="single-product.html">{{p.category}}</a></h4>
+                                                    <h4><a class="product_name" href="{%url 'product_single' id=p.id%}">{{p.title}}</a></h4>
                                                     
                                                     <div class="price-box">
                                                         <span class="new-price">$ {{p.new_price}}</span>
@@ -336,8 +336,8 @@
                                         <!-- single-product-wrap start -->
                                         <div class="single-product-wrap">
                                             <div class="product-image">
-                                                <a href="single-product.html">
-                                                    <img src="{{p.ImageUrl}}" alt="Li's Product Image">
+                                                <a href="{%url 'product_single' id=p.id%}">
+                                                    <img src="{{p.ImageUrl}}" alt="Li's Product Image" >
                                                 </a>
                                                 <span class="sticker">New</span>
                                             </div>
@@ -345,7 +345,7 @@
                                                 <div class="product_desc_info">
                                                     <div class="product-review">
                                                         <h5 class="manufacturer">
-                                                            <a href="shop-left-sidebar.html">{{p.title}}</a>
+                                                            <a href="shop-left-sidebar.html">{{p.category}}</a>
                                                         </h5>
                                                         <div class="rating-box">
                                                             <ul class="rating">
@@ -357,7 +357,7 @@
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                    <h4><a class="product_name" href="single-product.html">{{p.category}}</a></h4>
+                                                    <h4><a class="product_name" href="{%url 'product_single' id=p.id%}">{{p.title}}</a></h4>
                                                     <div class="price-box">
                                                         <span class="new-price">$ {{p.new_price}}</span>
                                                     </div>
