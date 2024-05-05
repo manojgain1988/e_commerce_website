@@ -73,7 +73,7 @@
                         <!-- Begin Header Logo Area -->
                         <div class="col-lg-3">
                             <div class="logo pb-sm-30 pb-xs-30">
-                                <a href="index.html">
+                                <a href="{% url 'home' %}">
                                     <img style="height:50px; width:130px" src="{{setting.icon.url}}" alt="">
                                 </a>
                             </div>
@@ -82,8 +82,10 @@
                         <!-- Begin Header Middle Right Area -->
                         <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                             <!-- Begin Header Middle Searchbox Area -->
-                            <form action="#" class="hm-searchbox">
-                                <select class="nice-select select-search-category">
+                            <form action="{% url 'SearchView' %}" class="hm-searchbox" method="POST">
+                                    {% csrf_token %}
+
+                                <select name="cat_id" class="nice-select select-search-category">
                                     <option value="0">All</option>
                                     
                                     {% load mptt_tags %}
@@ -96,7 +98,7 @@
                                     {% endrecursetree %}
 
                                 </select>
-                                <input type="text" placeholder="Enter your search key ...">
+                                <input type="text" placeholder="Enter your search key ..." id="query" name='query'>
                                 <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
                             </form>
                             <!-- Header Middle Searchbox Area End Here -->
@@ -177,13 +179,8 @@
                             <div class="hb-menu">
                                 <nav>
                                     <ul>
-                                        <li class="dropdown-holder"><a href="index.html">Home</a>
-                                            <ul class="hb-dropdown">
-                                                <li class="active"><a href="index.html">Home One</a></li>
-                                                <li><a href="index-2.html">Home Two</a></li>
-                                                <li><a href="index-3.html">Home Three</a></li>
-                                                <li><a href="index-4.html">Home Four</a></li>
-                                            </ul>
+                                        <li class="#"><a href="{% url 'home' %}">Home</a>
+                                           
                                         </li>
                                         <li class="megamenu-holder"><a href="shop-left-sidebar.html">Shop</a>
                                             <ul class="megamenu hb-megamenu">
@@ -273,7 +270,7 @@
                                                         <li><a href="blog-gallery-format.html">Blog Gallery Format</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="index.html">Other Pages</a>
+                                                <li><a href="{% url 'home' %}">Other Pages</a>
                                                     <ul>
                                                         <li><a href="login-register.html">My Account</a></li>
                                                         <li><a href="checkout.html">Checkout</a></li>
@@ -282,7 +279,7 @@
                                                         <li><a href="shopping-cart.html">Shopping Cart</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="index.html">Other Pages 2</a>
+                                                <li><a href="{% url 'home' %}">Other Pages 2</a>
                                                     <ul>
                                                         <li><a href="contact.html">Contact</a></li>
                                                         <li><a href="about-us.html">About Us</a></li>
@@ -292,8 +289,8 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{%url 'about'%}">About Us</a></li>
+                                        <li><a href="{%url 'contact_dat'%}">Contact</a></li>
                                         <li><a href="shop-left-sidebar.html">Smartwatch</a></li>
                                         <li><a href="shop-left-sidebar.html">Accessories</a></li>
                                     </ul>
