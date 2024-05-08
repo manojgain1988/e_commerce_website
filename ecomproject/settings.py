@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles', 
     'ecomapp',
     'product',
+    'OrderApp',
+    'UserApp',
     'mptt',
     'crispy_forms',
 ]

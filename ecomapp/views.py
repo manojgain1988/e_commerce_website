@@ -1,11 +1,19 @@
 from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
-from product.models import Product,Images,Category
 from.models import * 
 from django.contrib import messages
+from product.models import Product,Images,Category
 from ecomapp.forms import SearchForm 
+from OrderApp.models import ShopCart
+
 # Create your views here.
 
 def Home(request):
+    current_user = request.user
+    cart_product = ShopCart.objects.filter(user_id=current_user.id)
+    total_amount = 0
+    for p in cart_product:
+        total_amount += p.product.new_price*p.quantity
+
     category = Category.objects.all()
     setting = Setting.objects.get(id=1)
     sliding = Product.objects.all().order_by('id')[:3]
@@ -18,6 +26,8 @@ def Home(request):
         'sliding': sliding,
         'latest_products': latest_products,
         'feature_products': feature_products,
+        'cart_product': cart_product,
+        'total_amount': total_amount,
      
     }
     return render(request,'home.html',context)
