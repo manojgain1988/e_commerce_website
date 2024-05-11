@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
@@ -10,8 +11,7 @@ class UserProfile(models.Model):
     city=models.CharField(max_length=200,blank=True)
     country=models.CharField(max_length=200,blank=True)
     image=models.ImageField(blank=True, upload_to='user_img')
-    # created_at = models.DateTimeField(auto_now_add=True)
-    # updated_at = models.DateTimeField(auto_now_add=True)
+
 
 
     def __str__(self):
